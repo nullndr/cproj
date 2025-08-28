@@ -11,7 +11,7 @@ TARGET := $(BIN_DIR)/$(PROG_NAME)
 SRCS := $(wildcard $(SRC_DIR)/*.c)
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(BIN_DIR)/%.o)
 
-TEST_SRCS := $(wildcard $(TEST_DIR)/*.c)
+TEST_SRCS := $(wildcard $(TEST_DIR)/*.test.c)
 TEST_OBJS := $(TEST_SRCS:$(TEST_DIR)/%.c=$(BIN_DIR)/%.test.o)
 TEST_BIN  := $(BIN_DIR)/tests
 
