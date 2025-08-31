@@ -9,8 +9,13 @@ main() {
   local valgrind_flags="--leak-check=full --show-leak-kinds=all --track-origins=yes --verbose"
 
   if [[ ! -f "$program" ]]; then
-    echo "Error: Program '$program' not found. Build it first."
-    exit 1
+    echo "Building $program..."
+    make
+
+    if [[ $? != 0 ]]; then
+      echo "Error while compiling $program, aborting"
+      exit 1
+    fi
   fi
 
   echo "Running Valgrind on $program..."
