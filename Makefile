@@ -1,5 +1,5 @@
 CC := gcc
-CFLAGS := -Wall -Wextra -Iinclude -Icommon -std=c23
+CFLAGS := -Wall -Wextra -Iinclude -Icommon -std=c2x
 
 PROG_NAME := program
 SRC_DIR := src

@@ -2,4 +2,4 @@
 -Wextra
 -Iinclude
 -Icommon
--std=c23
+-std=c2x
