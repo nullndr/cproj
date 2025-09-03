@@ -1,0 +1,29 @@
+name: Check valgrind
+on:
+  push:
+
+jobs:
+  check-valgrind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+
+      - name: Install build dependencies
+        run: sudo apt-get update && sudo apt-get install -y build-essential
+
+      - name: Build program
+        run: make
+
+      - name: Run valgrind
+        uses: Ximaz/valgrind-action@v1.2.0
+        with:
+          binary_path: "./bin/program"
+          binary_args: ""
+          ld_library_path: ""
+          redzone_size: 16
+          track_file_descriptors: true
+          treat_error_as_warning: false
+          valgrind_suppressions: ""
+          verbose: true
+          timeout: 0s
